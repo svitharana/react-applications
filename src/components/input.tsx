@@ -1,19 +1,30 @@
 interface Props {
-  value: string;
-  placeholder: string;
-  onChange: (val: string) => void;
+  inputValue: string;
+  onInputChange: (val: string) => void;
+  textboxValue: string;
+  onTextboxChange: (val: string) => void;
 }
 
-export default function Input({ value, placeholder, onChange }: Props) {
+export default function Input({
+  inputValue,
+  onInputChange,
+  textboxValue,
+  onTextboxChange,
+}: Props) {
   return (
     <div>
-      <label>Description</label>
+      <label>TODO</label>
       <input
         type="text"
-        value={value}
-        placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)}
+        value={inputValue}
+        placeholder="TODO"
+        onChange={(e) => onInputChange(e.target.value)}
       />
+      <label>Description</label>
+      <textarea
+        value={textboxValue}
+        onChange={(e) => onTextboxChange(e.target.value)}
+      ></textarea>
     </div>
   );
 }
