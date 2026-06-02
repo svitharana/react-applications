@@ -3,9 +3,13 @@ import Card from "./components/card";
 import { useState } from "react";
 
 function App() {
+  interface Todo {
+    title: string;
+    desc: string;
+  }
   const [inputValue, setInputValue] = useState("");
-  const [textboxValue, setTexboValue] = useState("");
-  const [todos, setTodos] = useState<string[]>([]);
+  const [textboxValue, setTexboxValue] = useState("");
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleOnClick = () => {
     if (inputValue.trim() === "" && textboxValue.trim() === "") return;
@@ -17,7 +21,7 @@ function App() {
       },
     ]);
     setInputValue("");
-    setTexboValue("");
+    setTexboxValue("");
   };
   return (
     <div
@@ -38,7 +42,7 @@ function App() {
         inputValue={inputValue}
         textboxValue={textboxValue}
         onInputChange={setInputValue}
-        onTextboxChange={setTexboValue}
+        onTextboxChange={setTexboxValue}
       />
       <button
         style={{
